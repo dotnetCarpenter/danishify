@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content='text/html; charset=utf-8' http-equiv='Content-type' />
+	<title>danishify - æøå service</title>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+	<style type="text/css">
+		html, body, h1{ margin: 0; padding: 0; overflow: hidden;}
+		h1 {
+			font-family: 'Lobster', arial, serif;
+			font-size: 8em;
+			margin-top: -40px;
+			position: absolute;
+			right: 1em;
+		}
+		p {
+			color: #808080;
+			font-family: Geneva, Georgia;
+			margin: 10px;
+		}
+		.intro{
+			margin-top: 100px;
+			width: 1000px;
+		}
+	</style>
+	<script type="text/javascript" src="js/danishify.js"></script>
+	<!--<script type="text/javascript" src="http://static.ukijs.org/pkg/0.3.8/uki.js"></script>-->
+	<script type="text/javascript" src="js/lib/uki.js"></script>
+</head>
+<body>
+	<h1>danishify</h1>
+	<div class="intro">
+		<p>For dig der gerne vil skrive med de danske bogstaver, æ, ø, å på et udenlandsk tastatur.</p>
+		<p>
+			Indsæt eller skriv din tekst i det første tekst felt. Æ skrives med ae, Ø med oe og Å med aa.
+			Konverteringen prøver at regne ud hvornår der skal være store og små bogstaver og sker automatisk.
+		</p>
+	</div>
+	<script type="text/javascript">
+		var timeoutId;
+		function convertAction(){
+			uki('#output').value(
+				danishify.convert(
+					uki('#input').value()
+				)
+			);
+		}
+		
+		uki(
+			{ view: 'Container', rect: '10 180 1000 250', anchors: 'left top', childViews:[
+				{ view: 'Box', rect: '0 0 420 220', anchors: 'left top', background: 'theme(panel)', childViews:[
+					{ view: 'MultilineTextField', rect: '10 10 400 200', anchors: 'left top', id:'input', placeholder: 'Skriv tekst her' }
+				] },				
+				{ view: 'Button', rect: '440 0 120 24', anchors: 'left top', text: 'Konvertér' },
+				{ view: 'Box', rect: '580 0 420 220', anchors: 'left top', background: 'theme(panel)', childViews:[
+					{ view: 'MultilineTextField', rect: '10 10 400 200', anchors: 'left top', id:'output' }
+				] },
+				{ view: 'HFlow', rect: '0 224 1000 30', anchors: 'left top', childViews: [
+					{ view: 'Label', text: 'Danishify Version: {{ version }}', anchors: 'left top', rect: '0 0 130 30' },
+					{ view: 'Label', text: 'Powered By: ', rect: '70 30', anchors: 'left top' },
+					{ view: 'Image', src: 'http://code.google.com/appengine/images/appengine-noborder-120x30.gif', anchors: 'left top', rect: '120 30' },
+					{ view: 'Label', anchors: 'left top', html: 'Developed by : <a href="http://www.google.dk/search?q=dotnetCarpenter">dotnetCarpenter</a>', rect: '100 0 120 30' }
+				]}
+			]}
+		).attachTo(window);
+		uki('#input').keyup(function(e){
+			if(timeoutId){
+				clearInterval(timeoutId);
+			}
+			timeoutId = setTimeout(convertAction, 1000);			
+		});
+		uki('Container Button').click(convertAction);
+	</script>
+</body>
+</html>

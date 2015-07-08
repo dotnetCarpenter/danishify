@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+	<meta charset="utf-8"/>
+	<title>danishify - æøå service</title>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+	<style type="text/css">
+		html, body, h1, p, ul{ margin: 0; padding: 0; }
+		body{
+			font-family: Geneva, Georgia;
+			width: 1000px;
+		}
+        h1{
+            font-family: 'Lobster', arial, serif;
+            font-size: 8em;
+			float: right;
+        }
+		label{
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+			width: 155px;
+		}
+        p, textarea{
+            margin: 10px 0 10px 10px;
+			overflow: auto; /* KLUDGE: remove scrollbars from the textarea in IE */
+        }
+        p, a{ color: #808080; }
+		p:first-child{ clear:both; }
+		footer{
+			width: 1000px;
+			height: 32px;
+		}
+		footer img{ vertical-align: middle; }
+		footer span{ float: right; }
+		a{ text-decoration: none; }
+		a:hover{
+			color: #4D94AB;
+			text-decoration: underline;
+		}
+		.tori{
+			background-image: url('images/tori.png');
+			width: 140px;
+			height: 176px;
+		}
+		#input, #output{
+			display: inline-block;
+			width: 390px;
+			height: 200px;
+			-moz-border-radius: 15px 15px 0 0; /* KLUDGE: for FF3.6 and before */
+			border-radius: 15px 15px 0 0;
+			border-width: 2px;
+			padding: 0 6px 0 6px;
+			outline: none; /* KLUDGE: remove the yellow outline in chrome */
+		}
+		#input:focus, #output:focus{
+			border-color: #4D94AB #d2cdfe #d2cdfe #4D94AB;
+		}
+	</style>
+</head>
+<body>
+	<h1>danishify</h1>
+	<div class="tori"></div>
+	<p>For dig der gerne vil skrive med de danske bogstaver, æ, ø, å på et udenlandsk tastatur.</p>
+	<p>
+		Indsæt eller skriv din tekst i det første tekst felt. Æ skrives med ae, Ø med oe og Å med aa.
+		Konverteringen prøver at regne ud hvornår der skal være store og små bogstaver og sker automatisk.
+	</p>
+	<form>
+		<textarea id="input"></textarea>
+		<label for="input" id="status">Venter på indtasting</label>
+		<textarea id="output"></textarea>
+	</form>
+	<style type="text/css">
+		footer ul{
+			margin: 0;
+			padding:0;
+			list-style-type: none;
+			width: 1000px;
+		}
+		footer li{ float:left;line-height: 32px; }
+		footer ul a{
+			margin:0 5px;
+			display: block;
+			height: 32px;
+			background: url('../images/power-sprite.gif') no-repeat;
+		}
+		footer li:nth-child(2) a{ width: 120px; }
+		footer li:nth-child(2) a:hover{
+			background-position: 0 -32px;
+		}
+		footer li:nth-child(3) a{
+			background-position: -120px 0;
+			width: 32px;
+		}
+		footer li:nth-child(3) a:hover{
+			background-position: -120px -32px;
+		}
+		footer li:nth-child(4){ float: right; }
+		footer li:nth-child(4) a{ background: none;float: right; }
+	</style>
+	<footer>
+		<ul>
+			<li>Powered By:</li>
+			<li><a href="http://code.google.com/appengine/" title="Powered by Google App Engine"></a></li>
+			<li><a href="http://code.google.com/apis/webfonts/" title="Powered by Google Font API"></a></li>
+			<li>Developed by :<a href="http://www.google.com/search?q=dotnetCarpenter">dotnetCarpenter</a></li>
+		</ul>
+	</footer>
+	<style type="text/css">
+		.foo{
+			float:left;
+			margin: 0;
+			padding:0;
+			line-height: 32px;
+			width: 1000px;
+		}
+		.foo *{ display: block; }
+		.foo a{
+			margin:0 5px;
+			display: block;
+			height: 32px;
+			background: url('../images/power-sprite.gif') no-repeat;
+		}
+		.foo  a:nth-child(1){ width: 120px; }
+		.foo  a:nth-child(1):hover{
+			background-position: 0 -32px;
+		}
+		.foo  a:nth-child(2){
+			background-position: -120px 0;
+			width: 32px;
+		}
+		.foo a:nth-child(2):hover{
+			background-position: -120px -32px;
+		}
+		.foo span:nth-child(1){ float: right; }
+		.foo span:nth-child(1) a{ background: none;float: right; }
+	</style>
+	<div class="foo">
+		<span>Powered By:</span>
+		<a href="http://code.google.com/appengine/" title="Powered by Google App Engine"></a>
+		<a href="http://code.google.com/apis/webfonts/" title="Powered by Google Font API"></a>
+		<span>Developed by :<a href="http://www.google.com/search?q=dotnetCarpenter">dotnetCarpenter</a></span>
+	</div>
+</body>
+</html>

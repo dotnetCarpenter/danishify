@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+	<meta charset="utf-8"/>
+	<title>danishify - æøå service</title>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+	<link href='css/css3.css' rel='stylesheet' type='text/css' />
+	<script type="application/javascript" src="js/danishify.js"></script>
+</head>
+<body>
+	<h1>danishify</h1>
+	<div class="tori"></div>
+	{% if username %}
+		<h2>Hej {{ username }}</h2>
+	{% endif %}
+	<p>For dig der gerne vil skrive med de danske bogstaver, æ, ø, å på et udenlandsk tastatur.</p>
+	<p>
+		Indsæt eller skriv din tekst i det første tekst felt. Æ skrives med ae, Ø med oe og Å med aa.
+		Konverteringen prøver at regne ud hvornår der skal være store og små bogstaver og sker automatisk.
+	</p>
+	<form>
+		<textarea id="input" placeholder="Indsæt eller skriv din tekst her" autofocus="true"></textarea>
+		<label for="input" id="status">Venter på indtasting</label>
+		<textarea id="output"></textarea>
+	</form>
+	<footer>
+		<ul>
+			<li>Powered By:</li>
+			<li><a href="http://code.google.com/appengine/" title="Powered by Google App Engine"></a></li>
+			<li><a href="http://code.google.com/apis/webfonts/" title="Powered by Google Font API"></a></li>
+			<li>Developed by :<a href="http://www.google.com/search?q=dotnetCarpenter">dotnetCarpenter</a></li>
+		</ul>
+	</footer>
+	<script type="application/javascript">
+		//TODO: lazy load indexOf if not supported (IE 8.0 and before)
+		//https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
+		//TODO: detect paste ins by mouse only
+		//http://assanka.net/content/tech/2009/05/04/auto-growing-textareas/#comments
+		//TODO: Convert all px to em but the for window
+
+		function convertAction(){
+			danishify.output.value = danishify.convert(danishify.input.value);
+			danishify.util.growToFit(danishify.output);
+		}
+		function $(el){
+			return document.getElementById(el);
+		}
+		danishify.input = $('input');
+		danishify.output = $('output');
+		danishify.input.status = $('status');
+		danishify.util.addEvent(
+			window,
+			'load',
+			function(){
+				var timeoutId;
+				if(!danishify.input.status.defaultValue){ danishify.input.status.defaultValue = danishify.input.status.innerHTML; }
+				danishify.util.addEvent(
+					danishify.input,
+					'keyup',
+					function(e){
+						if(timeoutId){
+							clearInterval(timeoutId);
+						}
+						timeoutId = setTimeout(function(){
+							danishify.input.status.innerHTML = 'Konvertere...';
+							convertAction();
+							danishify.input.status.innerHTML = danishify.input.status.defaultValue;
+						}, 500);
+					},
+					function(e){
+						danishify.util.growToFit(danishify.input);
+					}
+				);
+			},
+			function(){
+				if(!danishify.input.autofocus){ danishify.input.focus(); }
+			}
+		);
+	</script>
+</body>
+</html>

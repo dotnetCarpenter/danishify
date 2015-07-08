@@ -1,0 +1,85 @@
+/**
+ * 
+ * REMARKS:
+ * Use YUI Compressor for production http://refresh-sf.com/yui/
+ */
+html, body, h1, p, ul{ margin: 0; padding: 0; }
+body{
+	font-family: Geneva, Georgia;
+	width: 1000px;
+	padding: 0 10px;
+}
+h1{
+    font-family: 'Lobster', arial, serif;
+    font-size: 8em;
+	float: right;
+}
+label{
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 155px;
+}
+p, textarea{
+    margin: 10px 0;
+/* KLUDGE: remove scrollbars from the textarea in IE (default is overflow:scroll) */
+/** Not applicable as we don't have any scrollbars anymore
+ *  only kept as reminder
+	overflow: auto;
+	*/
+}
+p, a{ color: #808080; }
+p:first-child{ clear:both; }
+a{ text-decoration: none; }
+a:hover{
+	color: #4D94AB;
+	text-decoration: underline;
+}
+
+.tori{
+	background-image: url('../images/tori.png');
+	width: 140px;
+	height: 176px;
+}
+#input, #output{
+	display: inline-block;
+	width: 400px;
+	height: 200px;
+	-moz-border-radius: 15px 15px 0 0; /* KLUDGE: for FF3.6 and before */
+	border-radius: 15px 15px 0 0;
+	border-width: 1px;
+	padding: 0 6px 0 6px;
+	outline: none; /* KLUDGE: remove the yellow outline in chrome */
+	overflow: hidden;
+	vertical-align: top;
+}
+#input:focus, #output:focus{
+	border-color: #4D94AB #96c1cf #96c1cf #4D94AB;
+}
+/* footer */
+footer ul{
+	margin: 0;
+	padding:0;
+	list-style-type: none;
+}
+footer li{ float:left;line-height: 32px; }
+footer ul a{
+	margin:0 5px;
+	display: block;
+	height: 32px;
+	background: url('../images/power-sprite.gif') no-repeat;
+}
+footer li:nth-child(2) a{ width: 120px; }
+footer li:nth-child(2) a:hover{
+	background-position: 0 -32px;
+}
+footer li:nth-child(3) a{
+	background-position: -120px 0;
+	width: 32px;
+}
+footer li:nth-child(3) a:hover{
+	background-position: -120px -32px;
+}
+footer li:nth-child(4){ float: right; }
+footer li:nth-child(4) a{ background: none;float: right; }
+/* end footer */
