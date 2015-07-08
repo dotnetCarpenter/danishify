@@ -1,6 +1,6 @@
 application: danishify
 version: 2
-runtime: python27
+runtime: python
 threadsafe: false
 api_version: 1
 
