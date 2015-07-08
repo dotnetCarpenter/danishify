@@ -5,14 +5,15 @@
  * Use Google Closure Compiler for production http://closure-compiler.appspot.com/home
  */
 var danishify = function(){
-	var _blackList = ['soen', 'aalborg'];
+	//TODO: handle 'kanaanæer'
+	var _blackList = ['soen', 'aalborg', 'afrikaans', 'ekstraarbejde', 'aabenraa', 'grenaa'];
 	return {
 		convert: function(text){
-								// find any word that contains 'ae' or 'oe' or 'aa'
-			return text.replace(/\b\w*(ae|oe|aa)\w*\b/gi, function(match){
+			// find any word that contains 'ae' or 'oe' or 'aa'
+			return text.replace(/\b\w*(ae|oe|aa)+\w*\b/gi, function(match){
 				if(_blackList.indexOf(match.toLowerCase())!== -1){ return match; }
-									// find the æ ø å substitutes
-				return match.replace(/ae|oe|aa/i, function(match){
+				// find the æ ø å substitutes
+				return match.replace(/ae|oe|aa/ig, function(match){
 					switch(match){
 						case 'ae':	return 'æ';
 						case 'Ae':
