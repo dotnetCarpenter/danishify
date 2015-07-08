@@ -32,8 +32,10 @@
 		</ul>
 	</footer>
 	<script type="application/javascript">
-		//TODO: lazy load indexOf if not supported (IE 8.0 and before)
-		//https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
+	/**
+	 * @author dotnetCarpenter <jon.ronnenberg@gmail.com>
+	 * @version 1.0.1
+	 */
 		//TODO: detect paste ins by mouse only
 		//http://assanka.net/content/tech/2009/05/04/auto-growing-textareas/#comments
 		//TODO: Convert all px to em but the for window
@@ -45,12 +47,15 @@
 		function $(el){
 			return document.getElementById(el);
 		}
+		function delay(fn, milliseconds) {
+			return setTimeout(fn, milliseconds || 0);
+		}
 		danishify.input = $('input');
 		danishify.output = $('output');
 		danishify.input.status = $('status');
 		danishify.util.addEvent(
 			window,
-			'load',
+			'DOMContentLoaded',
 			function(){
 				var timeoutId;
 				if(!danishify.input.status.defaultValue){ danishify.input.status.defaultValue = danishify.input.status.innerHTML; }
@@ -63,8 +68,10 @@
 						}
 						timeoutId = setTimeout(function(){
 							danishify.input.status.innerHTML = 'Konvertere...';
-							convertAction();
-							danishify.input.status.innerHTML = danishify.input.status.defaultValue;
+							delay(function() {
+								convertAction();
+								danishify.input.status.innerHTML = danishify.input.status.defaultValue;
+							});
 						}, 500);
 					},
 					function(e){

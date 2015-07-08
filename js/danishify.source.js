@@ -1,5 +1,6 @@
 /**
- * @author Jon Ege Ronnenberg AKA dotnetCarpenter
+ * @author dotnetCarpenter <jon.ronnenberg@gmail.com>
+ * @version 1.0.1
  * REMARKS:
  * Use Google Closure Compiler for production http://closure-compiler.appspot.com/home
  */
@@ -41,7 +42,7 @@ var danishify = function(){
 						element.addEventListener(type, arguments[i], false);
 					}
 					else { // IE
-						element.attachEvent('on' + type, arguments[i]);
+						alert("Internet Explorer 8 and below are not supported.");
 					}
 				}
 			},
