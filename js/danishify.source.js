@@ -1,12 +1,12 @@
 /**
  * @author dotnetCarpenter <jon.ronnenberg@gmail.com>
  * @version 1.0.1
- * REMARKS:
- * Use Google Closure Compiler for production http://closure-compiler.appspot.com/home
  */
+'use strict';
+
 var danishify = function(){
 	//TODO: handle 'kanaanæer'
-	var _blackList = ['soen', 'aalborg', 'afrikaans', 'ekstraarbejde', 'aabenraa', 'grenaa'];
+	var _blackList = ['aalborg', 'afrikaans', 'ekstraarbejde', 'aabenraa', 'grenaa'];
 	return {
 		convert: function(text){
 			// find any word that contains 'ae' or 'oe' or 'aa'

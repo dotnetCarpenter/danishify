@@ -1,0 +1,22 @@
+{
+  "name": "danishify",
+  "version": "2.0.0",
+  "description": "For dig der gerne vil skrive med de danske bogstaver, æ, ø, å på et udenlandsk tastatur.",
+  "private": true,
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotnetCarpenter/danishify.git"
+  },
+  "author": "dotnetCarpenter <jon.ronnenberg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dotnetCarpenter/danishify/issues"
+  },
+  "homepage": "http://dotnetCarpenter.github.io/danishify/"
+}
