@@ -8,11 +8,20 @@
 
 'use strict'
 
+<<<<<<< Updated upstream
+function convertAction(){
+  danishify.output.value = danishify.convert(danishify.input.value);
+  danishify.util.growToFit(danishify.output);
+}
+function $(el){
+  return document.getElementById(el);
+=======
 import danishify from '../js/danishify.js'
 
 function convertAction(input, output){
   output.value = danishify.convert(input.value);
   danishify.util.growToFit(output);
+>>>>>>> Stashed changes
 }
 const $ = (function(){
   const cache = []

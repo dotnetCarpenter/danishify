@@ -1,2 +1,60 @@
-var danishify=function(){var d="soen aalborg afrikaans ekstraarbejde aabenraa grenaa".split(" ");return{convert:function(a){return a.replace(/\b\w*(ae|oe|aa)+\w*\b/gi,function(a){return-1!==d.indexOf(a.toLowerCase())?a:a.replace(/ae|oe|aa/ig,function(a){switch(a){case "ae":return"\u00e6";case "Ae":case "AE":return"\u00c6";case "oe":return"\u00f8";case "Oe":case "OE":return"\u00d8";case "aa":return"\u00e5";case "Aa":case "AA":return"\u00c5";default:return a}})})},util:{addEvent:function(a,b){for(var c=
-2;c<arguments.length;c++)a.addEventListener?a.addEventListener(b,arguments[c],!1):alert("Internet Explorer 8 and below are not supported.")},growToFit:function(a,b){a.clientHeight<a.scrollHeight&&(a.style.height=a.scrollHeight+5*(b||16)+"px")}}}}();
+/**
+ * @author dotnetCarpenter <jon.ronnenberg@gmail.com>
+ * @version 2.0.0
+ */
+'use strict';
+
+export default (function(){
+	//TODO: handle 'kanaanæer'
+	var _blackList = ['aalborg', 'afrikaans', 'ekstraarbejde', 'aabenraa', 'grenaa'];
+	return {
+		convert: function(text){
+			// find any word that contains 'ae' or 'oe' or 'aa'
+			return text.replace(/\b\w*(ae|oe|aa)+\w*\b/gi, function(match){
+				if(_blackList.indexOf(match.toLowerCase())!== -1){ return match; }
+				// find the æ ø å substitutes
+				return match.replace(/ae|oe|aa/ig, function(match){
+					switch(match){
+						case 'ae':	return 'æ';
+						case 'Ae':
+						case 'AE':	return 'Æ';
+						case 'oe':	return 'ø';
+						case 'Oe':
+						case 'OE':	return 'Ø';
+						case 'aa':	return 'å';
+						case 'Aa':
+						case 'AA':	return 'Å';
+						default:
+							return match;
+					}
+				})
+			});
+		},
+		util: {
+			/**
+			 * Add an event.
+			 * @param {Object} element DOM element, e.g. window, to bind the event to.
+			 * @param {String} type Any type supported by the DOM element.
+			 * @param {Function} ... One or several functions to execute.
+			 */
+			addEvent: function(element, type){
+				for (var i = 2; i < arguments.length; i++) {
+					if (element.addEventListener) {
+						if(type === 'DOMContentLoaded' && document.readyState === 'complete')
+							arguments[i]()
+						else
+							element.addEventListener(type, arguments[i], false);
+					}
+					else { // IE
+						alert("Internet Explorer 8 and below are not supported.");
+					}
+				}
+			},
+			growToFit: function(elem, lineheight){
+				if(elem.clientHeight < elem.scrollHeight){
+					elem.style.height = elem.scrollHeight + 5 * (lineheight || 16) + 'px';
+				}
+			}
+		}
+	}
+}());
