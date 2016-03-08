@@ -1,12 +1,14 @@
 /**
  * @author dotnetCarpenter <jon.ronnenberg@gmail.com>
- * @version 1.0.1
+ * @version 2.0.0
  */
   //TODO: detect paste ins by mouse only
   //http://assanka.net/content/tech/2009/05/04/auto-growing-textareas/#comments
   //TODO: Convert all px to em but the for window
 
 'use strict'
+
+import danishify from '../js/danishify.js'
 
 function convertAction(){
   danishify.output.value = danishify.convert(danishify.input.value);

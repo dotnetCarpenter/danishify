@@ -3,3 +3,6 @@ _site
 
 # npm modules
 node_modules  
+
+# jspm modules
+jspm_packages
