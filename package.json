@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "build": "jspm bundle-sfx --minify js/app.js dist/app.js"
   },
   "repository": {
@@ -21,7 +21,13 @@
   },
   "homepage": "http://dotnetCarpenter.github.io/danishify/",
   "devDependencies": {
-    "jspm": "^0.16.30"
+    "jasmine-core": "^2.4.1",
+    "jspm": "^0.16.30",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^0.3.7",
+    "karma-jspm": "^2.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.5"
   },
   "jspm": {
     "directories": {
