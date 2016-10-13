@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * REMARKS:
  * Use YUI Compressor for production http://refresh-sf.com/yui/
  */
@@ -56,30 +56,27 @@ a:hover{
 #input:focus, #output:focus{
 	border-color: #4D94AB #96c1cf #96c1cf #4D94AB;
 }
+
 /* footer */
-footer ul{
-	margin: 0;
-	padding:0;
-	list-style-type: none;
+footer a {
+	text-decoration: none;
 }
-footer li{ float:left;line-height: 32px; }
-footer ul a{
-	margin:0 5px;
-	display: block;
+footer img {
+	vertical-align:middle;
+}
+.powered_by_label {
+	margin-right: 8px;
+}
+.powered_by.google_fonts{
+	display: inline-block;
+	margin-left: 8px;
 	height: 32px;
+	width: 40px;
+	vertical-align:middle;
 	background: url('../images/power-sprite.gif') no-repeat;
 }
-footer li:nth-child(2) a{ width: 120px; }
-footer li:nth-child(2) a:hover{
+.powered_by.google_fonts:hover{
 	background-position: 0 -32px;
 }
-footer li:nth-child(3) a{
-	background-position: -120px 0;
-	width: 32px;
-}
-footer li:nth-child(3) a:hover{
-	background-position: -120px -32px;
-}
-footer li:nth-child(4){ float: right; }
-footer li:nth-child(4) a{ background: none;float: right; }
+.developed_by{ float: right; }
 /* end footer */
