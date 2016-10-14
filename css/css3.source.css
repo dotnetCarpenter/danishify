@@ -1,51 +1,45 @@
 /**
  *
  * REMARKS:
- * Use YUI Compressor for production http://refresh-sf.com/yui/
+ * Use YUI Compressor for production http://refresh-sf.com/
  */
-html, body, h1, p, ul{ margin: 0; padding: 0; }
-body{
+html, body, h1, p, ul { margin: 0; padding: 0; }
+body {
 	font-family: Geneva, Georgia;
 	width: 1000px;
 	padding: 0 10px;
 }
-h1{
+h1 {
     font-family: 'Lobster', arial, serif;
     font-size: 8em;
 	float: right;
 }
-label{
+label {
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
 	width: 155px;
 }
-p, textarea{
+p, textarea {
     margin: 10px 0;
-/* KLUDGE: remove scrollbars from the textarea in IE (default is overflow:scroll) */
-/** Not applicable as we don't have any scrollbars anymore
- *  only kept as reminder
-	overflow: auto;
-	*/
 }
-p, a{ color: #808080; }
-p:first-child{ clear:both; }
-a{ text-decoration: none; }
-a:hover{
+p, a { color: #808080; }
+p:first-child { clear:both; }
+a { text-decoration: none; }
+a:hover {
 	color: #4D94AB;
 	text-decoration: underline;
 }
 
-.tori{
+.tori {
 	background-image: url('../images/tori.png');
 	width: 140px;
 	height: 176px;
 }
-#input, #output{
+#input, #output {
 	display: inline-block;
 	width: 400px;
 	height: 200px;
-	-moz-border-radius: 15px 15px 0 0; /* KLUDGE: for FF3.6 and before */
 	border-radius: 15px 15px 0 0;
 	border-width: 1px;
 	padding: 0 6px 0 6px;
@@ -53,30 +47,41 @@ a:hover{
 	overflow: hidden;
 	vertical-align: top;
 }
-#input:focus, #output:focus{
+#input:focus, #output:focus {
 	border-color: #4D94AB #96c1cf #96c1cf #4D94AB;
 }
 
 /* footer */
+footer, .powered-by, .developed-by {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 footer a {
 	text-decoration: none;
 }
-footer img {
-	vertical-align:middle;
+
+.powered-by, .developed-by {
+	width: 415px;
 }
-.powered_by_label {
-	margin-right: 8px;
+
+.powered-by img {
+	height: 42px;
+	line-height: 42px;
 }
-.powered_by.google_fonts{
-	display: inline-block;
-	margin-left: 8px;
-	height: 32px;
-	width: 40px;
-	vertical-align:middle;
-	background: url('../images/power-sprite.gif') no-repeat;
+
+.powered-by__google-fonts {
+	transform: translate(0, -6px);
+	filter: grayscale(100%);
 }
-.powered_by.google_fonts:hover{
-	background-position: 0 -32px;
+.powered-by__google-fonts:hover {
+	filter: grayscale(0%);
 }
-.developed_by{ float: right; }
+
+.footer-text {
+	font-size: 12px;
+}
+.footer-text__big {
+	font-size: 36px;
+}
 /* end footer */
