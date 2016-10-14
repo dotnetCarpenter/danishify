@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "jspm bundle-sfx --minify js/app.js dist/app.js"
+    "prepublish": "jspm install && npm run build",
+    "build": "jspm bundle-sfx --minify js/app.js dist/app.js",
+    "version": "npm run build && git add -A dist"
   },
   "repository": {
     "type": "git",
